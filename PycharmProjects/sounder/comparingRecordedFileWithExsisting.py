@@ -22,8 +22,17 @@ rate, filetest = wavfile.read('output.wav')
 keys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
 values = [file0, file1, file2, file3, file4, file5, file6, file7, file8, file9, fileA, fileB, fileC, fileD, fileE,
           fileF]
+frequencies = [500,520,540,560,580,600,620,640,660,680,700,720,740,760,780,800]
 my_dict = dict(zip(keys, values))
+my_dict2 = dict(zip(keys,frequencies))
+
+result = []
 
 for i in my_dict:
     print(i)
-    print(abs(my_dict[i] - filetest).sum())
+    temp = abs(my_dict[i] - filetest).sum()
+    print(temp)
+    result.append((temp,i))
+
+result.sort()
+print('\nMatched with {} having freq {}'.format(result[0][1],my_dict2[result[0][1]]))
