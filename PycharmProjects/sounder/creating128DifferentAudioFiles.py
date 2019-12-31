@@ -27,6 +27,6 @@ def makeMySound(freq,dur):
     wavfile.write('{}.wav'.format(freq),fs,note)
     return audio
 
-for i in range(500,820,20):
+for i in range(250,6601,50):
     print(i)
     makeMySound(i,1)
