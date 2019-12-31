@@ -26,13 +26,19 @@ frequencies = [500,520,540,560,580,600,620,640,660,680,700,720,740,760,780,800]
 my_dict = dict(zip(keys, values))
 my_dict2 = dict(zip(keys,frequencies))
 
-result = []
+result_directSum = []
+result_RMS = []
 
 for i in my_dict:
     print(i)
-    temp = abs(my_dict[i] - filetest).sum()
-    print(temp)
-    result.append((temp,i))
+    temp = (my_dict[i] - filetest).sum()
+    temp2 = abs(temp).sum()
+    temp3 = np.sqrt((temp**2).mean())
+    result_directSum.append((temp2,i))
+    result_RMS.append((temp3,i))
 
-result.sort()
-print('\nMatched with {} having freq {}'.format(result[0][1],my_dict2[result[0][1]]))
+result_directSum.sort()
+result_RMS.sort()
+
+print('\nMatched using direct with {} having freq {}'.format(result_directSum[0][1],my_dict2[result_directSum[0][1]]))
+print('\nMatched using rms with {} having freq {}'.format(result_RMS[0][1],my_dict2[result_RMS[0][1]]))
