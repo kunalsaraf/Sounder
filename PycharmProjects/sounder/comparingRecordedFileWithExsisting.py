@@ -31,7 +31,7 @@ result_RMS = []
 
 for i in my_dict:
     print(i)
-    temp = (my_dict[i] - filetest).sum()
+    temp = (my_dict[i] - filetest)
     temp2 = abs(temp).sum()
     temp3 = np.sqrt((temp**2).mean())
     result_directSum.append((temp2,i))
