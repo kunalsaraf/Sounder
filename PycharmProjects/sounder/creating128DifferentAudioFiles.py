@@ -20,13 +20,13 @@ def makeMySound(freq,dur):
 
     print(audio)
     # Start playback
-    play_obj = sa.play_buffer(audio, 1, 2, fs)
+    # play_obj = sa.play_buffer(audio, 1, 2, fs) #I have explicitly commented this line
 
     # Wait for playback to finish before exiting
-    play_obj.wait_done()
-    wavfile.write('{}.wav'.format(freq),fs,note)
+    # play_obj.wait_done() #I have explicitly commented this line
+    wavfile.write('New Audio Files 5 Seconds/{} 5 seconds.wav'.format(freq),fs,note)
     return audio
 
 for i in range(250,6601,50):
     print(i)
-    makeMySound(i,1)
+    makeMySound(i,5)
