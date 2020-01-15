@@ -4,9 +4,17 @@ from scipy.io import wavfile
 values = []
 keys = []
 
-for i in range(250,6601,50):
-    keys.append(i)
+for i in range(250, 1001, 50):
+    keys.append('A'+str(i))
     values.append(wavfile.read('New Audio Files/{}.wav'.format(i))[1])
+
+for i in range(250, 1001, 50):
+    keys.append('B'+str(i))
+    values.append(wavfile.read('Device1/{}.wav'.format(i))[1])
+
+for i in range(250, 1001, 50):
+    keys.append('C' + str(i))
+    values.append(wavfile.read('Device2/{}.wav'.format(i))[1])
 
 filetest = wavfile.read('output.wav')[1]
 
@@ -28,5 +36,8 @@ for i in my_dict:
 result_directSum.sort()
 result_RMS.sort()
 
-print('\nMatched using direct with frequency {}'.format(result_directSum[0][1]))
-print('\nMatched using rms with frequency {}'.format(result_RMS[0][1]))
+for i in range(0,7):
+    print('\nMatched using rms with frequency {}'.format(result_RMS[i][1]))
+
+#print('\nMatched using direct with frequency {}'.format(result_directSum[0][1]))
+#print('\nMatched using rms with frequency {}'.format(result_RMS[0][1]))
